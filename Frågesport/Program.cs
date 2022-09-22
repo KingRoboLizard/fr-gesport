@@ -31,7 +31,7 @@ while (!contents.EndOfStream)
             }
             else
             {
-                Console.WriteLine(lines[i].Trim() + $" ({i})");
+                Console.WriteLine($"({i}) " + lines[i].Trim());
             }
         }
 
