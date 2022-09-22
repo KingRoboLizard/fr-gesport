@@ -9,8 +9,9 @@ int maxScore = 0;
 Console.WriteLine("Skriv 'help' för kommand eller tryck 'Enter' för att starta frågesporten.");
 var contents = new StreamReader("questions.csv");
 input();
+answer = "";
 
-
+line = contents.ReadLine();
 while (!contents.EndOfStream)
 {
     line = contents.ReadLine();
@@ -106,13 +107,16 @@ void editMode()
     while (answer != "")
     {
         Console.Clear();
-        Console.WriteLine("entered edit mode\nWrite the question and answers separated by a comma(,) and then which anwer is correct.\nWhen done writing the question press enter to submit it.\n'removeline' to remove the last question, and press 'enter' with nothing written to exit edit mode.\nExiting without saving will delete all questions.\n\n");
+        Console.WriteLine("entered edit mode\nWrite the question and answers separated by a comma(,) and then which anwer is correct.\nWhen done writing the question press enter to submit it.\n'removeline' to remove the last question, and press 'enter' with nothing written to exit edit mode.\nExiting without saving will delete all questions.\n");
         Console.WriteLine(line);
         answer = Console.ReadLine();
         if (answer == "removeline")
         {
-            line = line.Remove(line.TrimEnd().LastIndexOf("\n"));
-            line += "\n";
+            if (!string.IsNullOrWhiteSpace(line))
+            {
+                line = line.Remove(line.TrimEnd().LastIndexOf("\n"));
+                line += "\n";
+            }
         }
         else if (answer != "")
         {
