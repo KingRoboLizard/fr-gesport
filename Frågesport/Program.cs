@@ -116,7 +116,7 @@ void editMode()
         answer = Console.ReadLine();
         if (answer == "removeline")
         {
-            if (!string.IsNullOrWhiteSpace(line))   //stoppar dig från att krasha programmet genom att ta bort mer än det finns
+            if (!string.IsNullOrWhiteSpace(line))   //stoppar dig från att krascha programmet genom att ta bort mer än det finns
             {
                 line = line.Remove(line.TrimEnd().LastIndexOf("\n"));
                 line += "\n";
