@@ -11,6 +11,7 @@ var contents = new StreamReader("questions.csv");
 input();
 answer = "";
 
+line = contents.ReadLine();
 while (!contents.EndOfStream)
 {
     line = contents.ReadLine();
