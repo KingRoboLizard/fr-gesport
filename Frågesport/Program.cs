@@ -11,6 +11,7 @@ var contents = new StreamReader("questions.csv");
 input();
 answer = "";
 
+//Läser csv filen och skriver ut frågor och svar
 line = contents.ReadLine();
 while (!contents.EndOfStream)
 {
@@ -53,6 +54,7 @@ while (!contents.EndOfStream)
     Console.Clear();
 }
 
+//Slutet av spelet, kollar ens score.
 if (score == maxScore)
 {
     Console.WriteLine($"Du fick rätt på alla frågor! ({maxScore}st)");
@@ -71,6 +73,7 @@ if (answer == "y")
     goto start;
 }
 
+//Läser ens input och bestämmer vad som ska hända 
 void input()
 {
     answer = Console.ReadLine().ToLower().Trim();
@@ -98,6 +101,7 @@ void input()
     }
 }
 
+//Läser hela filen till en string
 void editMode()
 {
     var contents = new StreamReader("questions.csv");
@@ -112,7 +116,7 @@ void editMode()
         answer = Console.ReadLine();
         if (answer == "removeline")
         {
-            if (!string.IsNullOrWhiteSpace(line))
+            if (!string.IsNullOrWhiteSpace(line))   //stoppar dig från att krasha programmet genom att ta bort mer än det finns
             {
                 line = line.Remove(line.TrimEnd().LastIndexOf("\n"));
                 line += "\n";
